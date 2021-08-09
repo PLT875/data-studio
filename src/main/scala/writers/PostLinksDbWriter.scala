@@ -1,4 +1,4 @@
-package org.data.studio
+package com.example
 package writers
 
 import org.apache.spark.sql.{DataFrame, SaveMode}
