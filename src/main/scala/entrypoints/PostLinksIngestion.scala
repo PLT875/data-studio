@@ -12,7 +12,7 @@ object PostLinksIngestion {
     val postLinksFileReader = new PostLinksFileReader()
     val filePath = args(0)
     val df = postLinksFileReader.readPostLinksFile(filePath)
-    println(df.schema)
+    //df.createOrReplaceTempView("post_links")
 
     val postLinksDbWriter = new PostLinksDbWriter()
     postLinksDbWriter.writeToTable(df);
