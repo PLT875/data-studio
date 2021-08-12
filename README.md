@@ -9,6 +9,11 @@ Various spark applications to ingest various datasets of https://archive.org/det
 
 # Environment setup
 
+Run tests
+```
+sbt test
+```
+
 Build JAR
 ```
 sbt package

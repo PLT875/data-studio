@@ -6,6 +6,7 @@ import writers.PostLinksDbWriter
 
 import org.apache.spark.sql.SparkSession
 
+// todo: could be more generic
 object PostLinksIngestion {
 
   def main(args: Array[String]) {
