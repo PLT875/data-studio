@@ -62,3 +62,5 @@ stackoverflow=# select * from post_links limit 5;
  2010-04-26 02:59:48.943 |  58 |           1 |    3376 |           2187
 (5 rows)
 ```
+
+Running [example](examples/Ingest_Users.png)
