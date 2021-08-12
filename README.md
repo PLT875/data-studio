@@ -19,7 +19,12 @@ Build JAR
 sbt package
 ```
 
-Unzip contents of stackoverflow.com-PostLinks.7z and stackoverflow.com-Users.7z into the data directory
+Make a data directory to extract the 7Z files from stackexhange into. 
+```
+mkdir data
+```
+
+In this exercise the stackoverflow.com-PostLinks.7z and stackoverflow.com-Users.7z were tested
 
 Start up the Spark and PostgreSQL instances using Docker
 ```
