@@ -40,7 +40,7 @@ Ingest post links XML
 docker exec -it data-studio-main_spark_1 bin/spark-submit \
     --class com.example.entrypoints.PostLinksIngestion \
     --jars libs/spark-xml_2.12-0.12.0.jar,libs/postgresql-42.2.23.jar \
-    --master <MASTER URL> 
+    --master <MASTER URL> \
     --deploy-mode client \
     /opt/bitnami/spark/data-studio-jars/data-studio_2.12-0.1.jar /opt/bitnami/spark/data/<post links XML>
 ```
