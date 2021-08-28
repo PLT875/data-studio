@@ -13,7 +13,7 @@ object PostLinksIngestion {
     implicit val spark = SparkSession.builder.appName("Post Links Ingestion").getOrCreate()
     val postLinksFileReader = new PostLinksFileReader()
     val filePath = args(0)
-    val df = postLinksFileReader.readPostLinksFile(filePath)
+    val df = postLinksFileReader.read(filePath)
     // df.createOrReplaceTempView("post_links")
 
     val postLinksDbWriter = new PostLinksDbWriter()

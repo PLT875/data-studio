@@ -5,13 +5,12 @@ import com.databricks.spark.xml.XmlDataFrameReader
 
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
-class PostLinksFileReader(implicit ss: SparkSession) {
+class PostLinksFileReader(implicit ss: SparkSession) extends XmlFileReader {
 
   // todo: define schema
-  def readPostLinksFile(path: String): DataFrame = {
+  override def read(path: String): DataFrame = {
     ss.read.format("xml")
       .option("rowTag", "row")
       .xml(path)
   }
-
 }

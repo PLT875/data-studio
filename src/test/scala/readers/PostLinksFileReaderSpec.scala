@@ -15,8 +15,7 @@ class PostLinksFileReaderSpec extends AnyFlatSpec with Matchers {
     .getOrCreate()
 
   val postLinksFileReader = new PostLinksFileReader()
-  val postLinksDF = postLinksFileReader
-    .readPostLinksFile("src/test/scala/resources/postLinksTest.xml")
+  val postLinksDF = postLinksFileReader.read("src/test/scala/resources/postLinksTest.xml")
 
   it should "read post links XML file and return data frame" in {
     postLinksDF.columns
