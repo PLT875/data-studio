@@ -37,4 +37,13 @@ class PostLinksFileReaderSpec extends AnyFlatSpec with Matchers {
     assert(actualRow(3) === 109)
     assert(actualRow(4) === 32412)
   }
+
+  it should "be able to save as temp table and query data" in {
+    postLinksDF.createOrReplaceTempView("post_links")
+    val df = ss.sql("select * from post_links where _Id = 19")
+    val row = df.collect
+    assert(row.size === 1)
+    assert(row(0)(3) === 109)
+  }
+
 }
