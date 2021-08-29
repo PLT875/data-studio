@@ -15,6 +15,7 @@ services:
       - ./libs:/opt/bitnami/spark/libs
     ports:
       - '8080:8080'
+      - '4040:4040'
   spark-worker-1:
     image: docker.io/bitnami/spark:3
     environment:
