@@ -28,6 +28,7 @@ class PostLinksFileReaderSpec extends AnyFlatSpec with Matchers {
   }
 
   it should "map post links XML attribute values (of row tag) to rows" in {
+    println(postLinksDF.schema)
     val actualRow = postLinksDF.take(1)(0)
 
     assert(actualRow(0).toString === "2010-04-26 02:59:48.13")
