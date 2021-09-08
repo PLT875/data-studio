@@ -15,8 +15,7 @@ class PostLinksFileReaderSpec extends AnyFlatSpec with Matchers {
     .getOrCreate()
 
   val postLinksFileReader = new PostLinksFileReader()
-  val postLinksDF = postLinksFileReader
-    .readPostLinksFile("src/test/scala/resources/postLinksTest.xml")
+  val postLinksDF = postLinksFileReader.read("src/test/scala/resources/postLinksTest.xml")
 
   it should "read post links XML file and return data frame" in {
     postLinksDF.columns
@@ -29,6 +28,7 @@ class PostLinksFileReaderSpec extends AnyFlatSpec with Matchers {
   }
 
   it should "map post links XML attribute values (of row tag) to rows" in {
+    println(postLinksDF.schema)
     val actualRow = postLinksDF.take(1)(0)
 
     assert(actualRow(0).toString === "2010-04-26 02:59:48.13")
@@ -37,4 +37,13 @@ class PostLinksFileReaderSpec extends AnyFlatSpec with Matchers {
     assert(actualRow(3) === 109)
     assert(actualRow(4) === 32412)
   }
+
+  it should "be able to save as temp table and query data" in {
+    postLinksDF.createOrReplaceTempView("post_links")
+    val df = ss.sql("select * from post_links where _Id = 19")
+    val row = df.collect
+    assert(row.size === 1)
+    assert(row(0)(3) === 109)
+  }
+
 }

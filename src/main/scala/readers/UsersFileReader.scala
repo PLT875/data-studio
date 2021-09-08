@@ -4,13 +4,12 @@ package readers
 import com.databricks.spark.xml.XmlDataFrameReader
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
-class UsersFileReader(implicit ss: SparkSession) {
+class UsersFileReader(implicit ss: SparkSession) extends XmlFileReader {
 
   // todo: define schema
-  def readUsersFile(path: String): DataFrame = {
+  override def read(path: String): DataFrame = {
     ss.read.format("xml")
       .option("rowTag", "row")
       .xml(path)
   }
-
 }

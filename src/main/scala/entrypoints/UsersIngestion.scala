@@ -12,7 +12,7 @@ object UsersIngestion {
     implicit val spark = SparkSession.builder.appName("Users Ingestion").getOrCreate()
     val usersFileReader = new UsersFileReader()
     val filePath = args(0)
-    val df = usersFileReader.readUsersFile(filePath)
+    val df = usersFileReader.read(filePath)
     // df.createOrReplaceTempView("users")
 
     val usersDbWriter = new UsersDbWriter()

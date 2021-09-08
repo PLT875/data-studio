@@ -37,7 +37,7 @@ This will also mount volumes containing the .jars and data sets required to inge
 
 Ingest post links XML
 ```
-docker exec -it data-studio-main_spark_1 bin/spark-submit \
+docker exec -it data-studio-spark_1 bin/spark-submit \
     --class com.example.entrypoints.PostLinksIngestion \
     --jars libs/spark-xml_2.12-0.12.0.jar,libs/postgresql-42.2.23.jar \
     --master <MASTER URL> \

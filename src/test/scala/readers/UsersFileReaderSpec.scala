@@ -14,8 +14,7 @@ class UsersFileReaderSpec extends AnyFlatSpec with Matchers {
     .getOrCreate()
 
   val usersFileReader = new UsersFileReader()
-  val usersDF = usersFileReader
-    .readUsersFile("src/test/scala/resources/usersTest.xml")
+  val usersDF = usersFileReader.read("src/test/scala/resources/usersTest.xml")
 
   it should "read users XML file and return data frame" in {
     usersDF.columns
